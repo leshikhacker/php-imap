@@ -139,6 +139,27 @@ class Folder {
     public bool $is_trash;
 
     /**
+     * Indicates if folder is All
+     *
+     * @var boolean
+     */
+    public bool $is_all;
+
+    /**
+     * Indicates if folder is Important
+     *
+     * @var boolean
+     */
+    public bool $is_important;
+
+    /**
+     * Indicates if folder is Flagged
+     *
+     * @var boolean
+     */
+    public bool $is_flagged;
+
+    /**
      * Indicates if folder refers to others.
      * Not provided by all IMAP servers.
      *
@@ -296,6 +317,9 @@ class Folder {
         $this->is_sent = in_array('\Sent', $attributes);
         $this->is_junk = in_array('\Junk', $attributes);
         $this->is_trash = in_array('\Trash', $attributes);
+        $this->is_all = in_array('\All', $attributes);
+        $this->is_important = in_array('\Important', $attributes);
+        $this->is_flagged = in_array('\Flagged', $attributes);
     }
 
     /**
